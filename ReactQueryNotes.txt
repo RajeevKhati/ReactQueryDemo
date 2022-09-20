@@ -1,0 +1,15 @@
+# React query cache :-
+    * When we send a request for the first time, it fetches the data from request url and stores it in a cache.
+    * The next time we make a request, react query just returns the cached value, But in background it makes a request to the url to check if our cached value is up to date or not.
+    * If background request data is equal to cache, then nothing happens, but if its different then react query updates the data(in page) with new value and also updates the cache accordingly.
+    * By default cacheTime is 5min. To change, pass third arg to useQuery as {cacheTime: 'timeInMili'}
+    * isFetching is used to detect if react query sent a background request or not.
+    * By default staleTime is 0s which means at every user request, react query will do a background fetch.
+    * We can update this staleTime if we don't want react query to do background fetch at every user request. To change, pass third arg to useQuery as {staleTime: 'timeInMili'}
+
+useQuery third arg object can have following options:-
+# refetchOnMount - By default its true. It sends a fetch request everytime a component mounts.
+# refetchOnWindowFocus - By default its true. It sends fetch request everytime user changes tab and comes back. (can be a different tab or different window)
+# refetchInterval - By default is false. We can pass miliseconds here,then it'll fetch request at every milisecond. Concept is called Polling.
+# refetchIntervalInBackground - once window looses focus refetchInterval will stop. If this is set to true, then refetching will continue even after window looses focus.
+# enabled:false - doing this, will not fetch request when component mounts. This comes handy when you want to fetch request after a button click.
