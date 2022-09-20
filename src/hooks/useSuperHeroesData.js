@@ -10,7 +10,7 @@ const useSuperHeroesData = (onSuccess, onError) => {
     fetchSuperHeroes,
     //select helps to transform response data. Here we have change array of objects to array to hero names.
     //We can use same method to filter out some elements as well.
-    { onSuccess, onError, select:(data) => data?.data.map(hero => hero.name) }
+    { onSuccess, onError }
   );
 }
 
