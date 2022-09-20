@@ -13,3 +13,4 @@ useQuery third arg object can have following options:-
 # refetchInterval - By default is false. We can pass miliseconds here,then it'll fetch request at every milisecond. Concept is called Polling.
 # refetchIntervalInBackground - once window looses focus refetchInterval will stop. If this is set to true, then refetching will continue even after window looses focus.
 # enabled:false - doing this, will not fetch request when component mounts. This comes handy when you want to fetch request after a button click.
+# onSuccess, onError - These are the callback functions that run after a success fetch and error fetch respectively.

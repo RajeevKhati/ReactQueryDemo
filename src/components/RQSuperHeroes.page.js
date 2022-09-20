@@ -4,10 +4,13 @@ import { useQuery } from "react-query";
 
 const fetchSuperHeroes = () => axios.get("http://localhost:4000/superheroes");
 const RQSuperHeroes = () => {
+  const onSuccess = (data) => console.log("data loaded successfully ", data);
+  const onError = (error) => console.log("data load error ", error);
+
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
     fetchSuperHeroes,
-    { enabled: false }
+    { onSuccess, onError }
   );
   if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
